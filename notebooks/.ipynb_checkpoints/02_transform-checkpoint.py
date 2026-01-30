@@ -78,8 +78,7 @@ print(f"Usando columna de fecha de firma: {fecha_col}")
 # Regla 1: Precio Base > 0
 # Regla 2: Fecha de Firma no nula
 
-# Convertimos el tipo correctamente y validamos
-cond_precio_ok = (col(precio_col).isNotNull()) & (col(precio_col).cast("double") > 0)
+cond_precio_ok = col(precio_col).cast("double") > 0
 cond_fecha_ok = col(fecha_col).isNotNull()
 
 cond_registro_valido = cond_precio_ok & cond_fecha_ok
@@ -103,9 +102,9 @@ df_invalidos = (
     .filter(~cond_registro_valido)  # 👈 filtro inverso
     .withColumn(
         "motivo_rechazo",
-        when(col(fecha_col).isNull(), lit("Fecha de Firma nula"))
-        .when(col(precio_col).isNull(), lit("Precio Base nulo"))
+        when(col(precio_col).isNull(), lit("Precio Base nulo"))
         .when(col(precio_col).cast("double") <= 0, lit("Precio Base <= 0"))
+        .when(col(fecha_col).isNull(), lit("Fecha de Firma nula"))
         .otherwise(lit("Incumple reglas de calidad"))
     )
 )
