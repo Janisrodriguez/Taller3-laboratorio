@@ -1,0 +1,11 @@
+Entidad,Nit Entidad,Departamento,Ciudad,Estado,Descripcion del Proceso,Tipo de Contrato,Modalidad de Contratacion,Justificacion Modalidad de Contratacion,Fecha de Firma,Fecha de Inicio del Contrato,Fecha de Fin del Contrato,Precio Base,Valor Total,Valor Pagado
+ALCALDIA 1,,ANTIOQUIA,,,,,,,2023-01-01,,,3582652,,
+GOBERNACION 2,,BOLIVAR,,,,,,,2023-02-15,,,4500000,,
+HOSPITAL 3,,ATLANTICO,,,,,,,,,0,,
+UNIVERSIDAD 4,,VALLE,,,,,,,2023-04-10,,,-100,,
+ALCALDIA 5,,CUNDINAMARCA,,,,,,,2023-05-20,,,2000000,,
+MUNICIPIO 6,,NARIÑO,,,,,,,,,50000,,
+GOBERNACION 7,,CAUCA,,,,,,,2023-07-30,,,3500000,,
+EMPRESA 8,,HUILA,,,,,,,,2023-08-15,,,1500000,,
+UNIVERSIDAD 9,,META,,,,,,,2023-09-01,,,4000000,,
+HOSPITAL 10,,AMAZONAS,,,,,,,2023-10-10,,,2500000,,
