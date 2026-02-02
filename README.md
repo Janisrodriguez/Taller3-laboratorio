@@ -1,20 +1,11 @@
 # Taller 3: Spark & Arquitectura Medallion
 
-Este taller práctico forma parte del **Módulo 3: Spark** y se centra en la implementación del **Capítulo 11: Arquitectura Medallion**.
-El objetivo es simular un flujo de datos real (Lakehouse) y resolver un reto de ingeniería de datos: la implementación de una **Puerta de Calidad (Quality Gate)**.
-
 ## 🎯 Objetivos del Taller
 
 1. **Infraestructura:** Desplegar un clúster Spark completo (Master, Worker, Jupyter) usando Docker.
 2. **Arquitectura:** Construir un pipeline de datos con capas **Bronce** (Crudo), **Plata** (Limpio) y **Oro** (Agregado).
 3. **RETO (Quality Gate):** Modificar el flujo para detectar datos corruptos y desviarlos a una zona de **Cuarentena** en lugar de eliminarlos.
 
-## 🛠️ Prerrequisitos
-
-* Docker Desktop instalado y corriendo.
-* Git (opcional, para clonar el repo).
-
----
 
 ## 🚀 Guía Paso a Paso
 
