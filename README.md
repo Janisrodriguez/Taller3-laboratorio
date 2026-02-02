@@ -91,3 +91,47 @@ docker-compose down
 # Opcional: borrar la carpeta data/lakehouse manualmente para reiniciar el taller
 
 ```
+
+---
+
+## 🗂️ Entregables y Documentación
+Este repositorio incluye los entregables solicitados para el reto:
+
+- `medallion_pipeline.py` — Script completo del pipeline (ingesta, Quality Gate, split a quarantine y reprocessing).
+- `quality_report.sql` — Queries para monitoreo y creación de dashboards de calidad.
+- `README.md` — Documentación con decisiones técnicas, reglas y ejemplo de ejecución.
+
+### Reglas de Calidad (resumen)
+- **Precio Base (`Precio_Base`)**: NOT NULL y > 0 (códigos E003, E004)
+- **Fecha de Firma (`Fecha_de_Firma`)**: NOT NULL y no futura (códigos E001, E002)
+
+### Metadatos en Quarantine
+Los registros desviados a `quarantine/secop_errors` contienen:
+- `motivo_rechazo`, `_rejection_code`, `_validation_timestamp`, `_pipeline_version`, `_quarantine_id`, `_reprocess_attempts`.
+
+### Ejecución (ejemplos)
+Ejecutar pipeline con ingesta y transformación:
+
+```bash
+docker compose exec jupyter-lab python /app/medallion_pipeline.py \
+  --input-path /app/data/SECOP_II_Contratos_Electronicos.csv \
+  --lakehouse-root /app/data/lakehouse --pipeline-version v1 --mode dev
+```
+
+Reprocesar registros en cuarentena:
+
+```bash
+docker compose exec jupyter-lab python /app/medallion_pipeline.py --run-reprocess --lakehouse-root /app/data/lakehouse
+```
+
+---
+
+### Siguientes pasos recomendados
+1. Añadir pruebas unitarias (`pytest`) para las funciones de validación.
+2. Agregar un pipeline CI (GitHub Actions) que ejecute tests en cada PR.
+3. Construir un dashboard usando `quality_report.sql` para monitoreo continuo.
+
+---
+
+Si quieres que implemente los tests y la configuración de CI ahora, puedo crear los archivos de prueba y el workflow de GitHub Actions.
+
